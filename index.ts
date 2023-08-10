@@ -6,9 +6,11 @@ import { map } from 'rxjs/operators';
 // https://www.learnrxjs.io/learn-rxjs/operators/combination/zip
 
 const log = (event, val) => `${event}: ${JSON.stringify(val)}`;
+
 const getCoords = pipe(
   map((e: MouseEvent) => ({ x: e.clientX, y: e.clientY }))
 );
+
 const documentEvent = (eventName) =>
   fromEvent(document, eventName).pipe(getCoords);
 
